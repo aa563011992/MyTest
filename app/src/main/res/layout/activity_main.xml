@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="throwE"
+        android:text="测试"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testThread"
+        android:text="测试线程"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试结果："
+        android:visibility="gone" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopOrStart"
+        android:visibility="gone"
+        android:text="启停" />
+
+    <com.example.myapplication.MediaPlayerIconView
+        android:id="@+id/mpiv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_icon"
+        android:visibility="gone" />
+
+    <com.example.myapplication.ProgressImageView2
+        android:id="@+id/pim"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerInside"
+        android:visibility="gone"
+        android:src="@mipmap/ic_speech_status_0"
+        app:pbProgressWidth="2dp" />
+</LinearLayout>
