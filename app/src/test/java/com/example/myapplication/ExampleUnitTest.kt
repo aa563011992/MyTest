@@ -1,9 +1,9 @@
 package com.example.myapplication
 
 import android.net.Uri
+import com.google.gson.Gson
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 import java.net.URLDecoder
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -27,17 +27,22 @@ class ExampleUnitTest {
 
     @Test
     fun test1() {
-        Thread {
-            for (j in 0 until 10000) {
-                i.incrementAndGet()
-            }
-            println("i=${i}")
-        }.start()
-        Thread {
-            for (j in 0 until 10000) {
-                i.incrementAndGet()
-            }
-            println("i=${i}")
-        }.start()
+        println(Gson().toJson(DevBean, DevBean::class.java))
+    }
+
+    object DevBean {
+        var text = "1"
+        val devList = ArrayList<Dev>()
+
+        init {
+            devList.add(Dev())
+            devList.add(Dev())
+            devList.add(Dev())
+            devList.add(Dev())
+        }
+    }
+
+    class Dev {
+        var arg = 2
     }
 }
