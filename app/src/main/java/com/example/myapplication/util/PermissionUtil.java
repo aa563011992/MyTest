@@ -75,9 +75,28 @@ public class PermissionUtil {
                 });
     }
 
-    public static void requestCameraAndStorage(final Runnable after, final Activity activity,String... strings) {
+    public static void requestCameraAndStorage(final Runnable after, final Activity activity, String... strings) {
         RxPermissions rxPermissions = new RxPermissions(activity);
         rxPermissions.request(strings)
+                .subscribe(aBoolean -> {
+                    try {
+                        after.run();
+                        if (aBoolean) {
+                            // 用户已经同意该权限
+
+                        } else {
+                            // 用户拒绝了该权限
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+    }
+
+    public static void requestStorage(final Runnable after, final Activity activity) {
+        RxPermissions rxPermissions = new RxPermissions(activity);
+        rxPermissions.request(Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .subscribe(aBoolean -> {
                     try {
                         after.run();

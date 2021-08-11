@@ -2,7 +2,7 @@ package com.example.myapplication.network.response;
 
 
 
-public class Response {
+public class MyResponse {
     private int code;
     private String msg;
 
@@ -19,6 +19,14 @@ public class Response {
     }
 
     public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public MyResponse() {
+    }
+
+    public MyResponse(int code, String msg) {
+        this.code = code;
         this.msg = msg;
     }
 }

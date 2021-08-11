@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        startActivity(Intent(this, TestGlideActivity::class.java))
+        startActivity(Intent(this, TestScaleWebView::class.java))
         finish()
     }
 }

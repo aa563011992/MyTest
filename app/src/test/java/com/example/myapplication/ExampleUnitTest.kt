@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.net.Uri
+import com.alibaba.fastjson.JSON
 import com.google.gson.Gson
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -20,19 +21,22 @@ class ExampleUnitTest {
 
     @Test
     fun test() {
-        println(Uri.decode("1+1 =2") + "~~~" + URLDecoder.decode("1+1 =2"))
+        println(Uri.encode("1+1 =2啊") + "~~~" + URLDecoder.decode("1+1 =2啊"))
     }
 
     var i = AtomicInteger(0)
 
     @Test
     fun test1() {
-        println(Gson().toJson(DevBean, DevBean::class.java))
+        val str = "{\"devList\":[{\"arg\":2},{\"arg\":2},{\"arg\":2},{\"arg\":2}],\"text\":\"1\"}"
+        println(Gson().fromJson(str, DevBean::class.java))
+        println(JSON.parseObject(str, DevBean::class.java))
     }
 
     object DevBean {
-        var text = "1"
+        val text = "1"
         val devList = ArrayList<Dev>()
+
 
         init {
             devList.add(Dev())
@@ -40,9 +44,19 @@ class ExampleUnitTest {
             devList.add(Dev())
             devList.add(Dev())
         }
+
+        override fun toString(): String {
+            return "DevBean(text='$text', devList=$devList)"
+        }
     }
 
     class Dev {
         var arg = 2
+        override fun toString(): String {
+            return "Dev(arg=$arg)"
+        }
+
+
     }
+
 }

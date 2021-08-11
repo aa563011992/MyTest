@@ -29,6 +29,18 @@
         <activity android:name=".VersionActivity"/>
         <activity android:name=".test4xin.TestRebootActivity"/>
         <activity android:name=".TestGlideActivity"/>
+        <activity android:name=".TestActivity"/>
+        <activity android:name=".TestScaleRecyclerView"/>
+        <activity android:name=".TestScaleWebView"/>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.Doc360FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>
